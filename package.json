@@ -1,0 +1,61 @@
+{
+  "name": "myApp",
+  "version": "1.0.0",
+  "description": "An API built with NodeJS, Express, MongoDB and TypeScript",
+  "main": "dist/server.js",
+  "scripts": {
+    "swagger": "swaggerGen -c ./swaggerConfig.json",
+    "doc": "typedoc --theme default --out docs lib/controllers",
+    "test": "jest --coverage",
+    "coverage": "jest --coverage",
+    "build": "tsc",
+    "dev": "ts-node-dev ./lib/server.ts",
+    "start": "node ./dist/server.js",
+    "prod": "npm run build && npm run start"
+  },
+  "keywords": [
+    "Dale",
+    "Nguyen"
+  ],
+  "author": "Dale Nguyen <dungnq@itbox4vn.com> (http://dalenguyen.me)",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.16.1",
+    "@types/jest": "^24.0.18",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-validator": "^6.1.1",
+    "jest": "^24.9.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.4.7",
+    "supertest": "^4.0.2",
+    "ts-jest": "^24.1.0",
+    "ts-node-dev": "^1.0.0-pre.42",
+    "typescript": "^3.6.3",
+    "jest-junit": "^8.0.0"
+  },
+  "devDependencies": {
+    "typedoc": "^0.15.3",
+    "typescript-rest-swagger": "^1.0.4"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
+  },
+  "jest-junit": {
+    "outputDirectory": "test_results/junit",
+    "outputName": "junit.xml",
+    "usePathForSuiteName": "true"
+  }
+}
