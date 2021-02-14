@@ -16,10 +16,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
 COPY . /usr/src/app/
-RUN if [ "$NODE_ENV" = "development" ]; \
-	then npm install;  \
-	else npm install --only=production; \
-	fi
+RUN npm install
 RUN npm run build
 
 EXPOSE  3000
